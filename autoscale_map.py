@@ -4,7 +4,7 @@ from airflow.operators.python import get_current_context
 from datetime import datetime
 import time
 
-DEFAULT_N = 5         
+DEFAULT_N = 8         
 DEFAULT_SECONDS = 30    
 
 with DAG(
@@ -33,4 +33,5 @@ with DAG(
 
     durations = gen_durations()
     sleeper.expand(seconds=durations)
+
 
