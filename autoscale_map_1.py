@@ -5,7 +5,7 @@ from datetime import datetime
 import time
 import random
 
-DEFAULT_N = 5         
+DEFAULT_N = random.randint(2,8)  
 DEFAULT_SECONDS = random.randint(3,15)    
 
 with DAG(
@@ -34,4 +34,5 @@ with DAG(
 
     durations = gen_durations()
     sleeper.expand(seconds=durations)
+
 
