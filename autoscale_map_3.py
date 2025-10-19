@@ -3,9 +3,10 @@ from airflow.decorators import task
 from airflow.operators.python import get_current_context
 from datetime import datetime
 import time
+import random
 
-DEFAULT_N = 200         
-DEFAULT_SECONDS = 180    
+DEFAULT_N = random.randint(2,8)  
+DEFAULT_SECONDS = random.randint(3,15)    
 
 with DAG(
     dag_id="autoscale_map_3",
@@ -33,3 +34,4 @@ with DAG(
 
     durations = gen_durations()
     sleeper.expand(seconds=durations)
+
