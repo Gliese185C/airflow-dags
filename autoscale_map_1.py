@@ -10,9 +10,8 @@ DEFAULT_SECONDS = random.randint(3,15)
 
 with DAG(
     dag_id="autoscale_map_1",
-    schedule_interval="*/1 * * * *"
+    schedule_interval="*/1 * * * *",
     start_date=datetime(2024, 1, 1),
-    schedule=None,
     catchup=False,
     max_active_tasks=1024,   
     tags=["autoscale", "mapping"],
@@ -35,6 +34,7 @@ with DAG(
 
     durations = gen_durations()
     sleeper.expand(seconds=durations)
+
 
 
 
