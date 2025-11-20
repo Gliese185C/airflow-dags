@@ -11,7 +11,7 @@ def read_from_xcom(session=None, **_):
         dag_id="xcom_writer",
         task_id="push_message",
         key="message",
-        include_prior_dates=True,
+        execution_date="2025-11-20 14:54:30.634888 +00:00",
         session=session,
     )
     if value is None:
